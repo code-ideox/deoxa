@@ -1,0 +1,444 @@
+﻿/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins aplicada */
+}
+
+/* Menú principal superior */
+.main-header {
+    width: calc(100%); /* Ajuste inicial para cuando el sidebar esté abierto */
+    height: 60px;
+    background-color: #000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px 0px 1px;
+    position: fixed;
+    top: 0;
+    left: 0px; /* Ajuste inicial para cuando el sidebar esté abierto */
+    z-index: 1000;
+    transition: left 0.3s, width 0.3s;
+}
+
+.menu-toggle {
+    margin-left: 8px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.logo {
+    margin-left: 30px;
+    font-size: 1em;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.top-nav a:hover {
+    color: #00f2fe;
+}
+
+/* Menú lateral solo con íconos */
+.side-menu {
+    width: 80px;
+    height: 100vh;
+    background-color: #dc3545;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px; /* Para evitar solapamiento con el header */
+    transition: left 0.3s;
+}
+
+.side-menu.closed {
+    left: -80px; /* Se mueve fuera de la vista */
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.side-nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.side-nav a:hover {
+    color: #333;
+}
+
+/* Contenido principal */
+.content {
+    padding: 100px 20px; /* Para evitar el solapamiento con el header */
+    margin-left: 80px; /* Ajuste para que coincida con el ancho de la barra lateral */
+    transition: margin-left 0.3s;
+}
+.flex {
+    display: flex; /* Habilita Flexbox */
+    justify-content: space-between; /* Distribuye los elementos a lo largo del espacio disponible */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    gap: 20px; /* Añade un espacio entre los elementos */
+}
+.flex button {
+    padding: 10px 20px; /* Estilos adicionales para el botón */
+}
+
+.flex p {
+    margin: 0; /* Elimina el margen del párrafo */
+}
+
+.flex h2 {
+    font-size: 18px; /* Ajusta el tamaño del título */
+    margin: 0; /* Elimina el margen del h1 */
+}
+
+
+
+
+
+.side-menu.closed ~ .main-header {
+    left: 0; /* El menú principal se coloca en su lugar */
+    width: 100%;
+}
+
+.side-menu.closed ~ .content {
+    margin-left: 0; /* Cuando se cierra la barra lateral, el contenido se ajusta */
+}
+
+h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+/* Fondo de la página */
+body {
+    height: 100vh;
+    background: #f0f0f0;
+}
+
+button {
+    display: inline;
+    margin: 8px 2px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    max-width: 600px; /* Limita el ancho de la ventana */
+    width: 100%;
+    position: relative;
+}
+/* Título de la ventana */
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-align: center; /* Centra el título */
+}
+/* Formulario dentro de la ventana */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espacio entre los campos del formulario */
+}
+
+/* Etiquetas */
+.modal-content label {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+}
+
+/* Campos de entrada de texto */
+.modal-content input[type="text"],
+.modal-content input[type="password"] {
+    padding: 5px;
+    border-top: 0px solid #ddd;
+    border-left: 0px solid #ddd;
+    border-right: 0px solid #ddd;
+    border-radius: 0px;
+    font-size: 13px;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no rompa el diseño */
+    background-color: #fff;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="password"]:focus {
+    border-color: #007bff; /* Color de borde al enfocar */
+    outline: none; /* Elimina el borde azul predeterminado */
+}
+
+
+
+
+.close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Estilos para la tabla */
+#passwordTable {
+    margin-top: 30px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 7px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #333;
+}
+
+td button.delete {
+    background-color: #dc3545;
+}
+
+td button.delete:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para el grid de contraseñas */
+#passwordGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilos de las tarjetas de contraseña */
+.password-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.password-card h3 {
+    font-size: 28px;
+    margin: 0 0 10px;
+}
+
+.password-card p {
+    font-size: 14px;
+}
+
+.password-card .button-group {
+    display: flex;
+    justify-content: space-between; /* Asegura que los botones se separen */
+    margin-top: 10px;
+}
+
+.password-card button {
+    flex: 1; /* Los botones se ajustan al mismo tamaño */
+    margin-right: 10px; /* Espaciado entre botones */
+}
+
+.password-card button.delete {
+    margin-right: 0; /* Elimina el margen derecho del último botón */
+}
+
+/* Estilos existentes para los botones */
+.password-card button:hover {
+    background-color: #333;
+}
+
+.password-card button.delete {
+    background-color: #dc3545;
+}
+
+.password-card button.delete:hover {
+    background-color: #c82333;
+}
+
+search-container {
+    margin-bottom: 20px; /* Espacio inferior para separar del contenido */
+    text-align: center; /* Centrar el campo de búsqueda */
+}
+
+.search-container input {
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 100%; /* Ancho del campo de búsqueda */
+    max-width: 600px; /* Ancho máximo */
+    box-sizing: border-box; /* Asegura que el padding no rompa el diseño */
+}
+
+.search-container input:focus {
+    border-color: #007bff; /* Color de borde al enfocar */
+    outline: none; /* Elimina el borde azul predeterminado */
+}
+
+
+
+/* Estilos para el grid de suscripciones */
+#subscriptionList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilos de las tarjetas de suscripción */
+.subscription-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subscription-card img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.subscription-card h3 {
+    font-size: 28px;
+    margin: 0 0 10px;
+}
+
+.subscription-card p {
+    font-size: 14px;
+}
+
+.subscription-card .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.subscription-card button {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.subscription-card button.delete {
+    margin-right: 0;
+    background-color: #dc3545;
+}
+
+.subscription-card button.delete:hover {
+    background-color: #c82333;
+}
+
+.subscription-card button:hover {
+    background-color: #333;
+}
+
+
+/* Estilos para el grid de cuentas */
+#accountList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.account-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

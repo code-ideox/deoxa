@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Menú Principal y Lateral Solo Íconos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Menú principal superior -->
+    <header class="main-header">
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars" id="menuIcon"></i>
+
+        </button>
+       <!-- <nav class="top-nav">
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+        </nav> -->
+
+        <h1 class="logo">     Gestiona tus contraseñas</h1>
+
+        <div class="search-container"><input type="text" id="searchInput" placeholder="Buscar contraseñas..."></div>
+
+        
+
+    </header>
+
+    <!-- Menú lateral solo con íconos -->
+    <aside class="side-menu" id="sideMenu">
+        <nav class="side-nav">
+            <a href="../index.html" title="Dashboard"><i class="fas fa-tachometer-alt"></i></a>
+            <a href="cuentas.html" title="Cuentas"><i class="fas fa-user"></i></a>
+            <a href="suscripcion.html" title="Suscripciones"><i class="fas fa-user"></i></a>
+            <a href="pass.html" title="Contraseñas"><i class="fas fa-user"></i></a>
+            <a href="#" title="Ajustes"><i class="fas fa-cog"></i></a>
+            <a href="#" title="Salir"><i class="fas fa-sign-out-alt"></i></a>
+        </nav>
+    </aside>
+
+    <!-- Contenido de la página -->
+    <main class="content">    
+
+        <!-- Título principal -->
+    
+    <div class="flex"> 
+        <button id="addPasswordBtn">Añadir Nuevo</button>
+        <p>Menú lateral solo con íconos como el de Google.</p>
+    </div>
+<div id="passwordGrid" class="password-grid">
+    <!-- Aquí se generarán las tarjetas de contraseñas -->
+</div>
+    <!-- Botón para abrir la ventana emergente de nueva contraseña -->
+    
+
+    
+    <!-- Contenedor de contraseñas (diseñado como una grid) -->
+    <div id="passwordGrid">
+        <!-- Aquí se van a generar las contraseñas guardadas como tarjetas -->
+    </div>
+
+    <!-- Ventana emergente para añadir o editar una contraseña -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Añadir nueva contraseña</h2>
+            <form id="passwordForm">
+                <label for="account">Cuenta/Servicio:</label>
+                <input type="text" id="account" required>
+
+                <label for="username">Usuario/Email:</label>
+                <input type="text" id="username" required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" required>
+
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    </main>
+    <script src="../scriptpassgrid.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>
